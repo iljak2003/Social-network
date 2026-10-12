@@ -8,7 +8,7 @@ public class User {
     private int age;
     private boolean sex;
     private String zodiacSign;
-    private UUID id = UUID.randomUUID();
+    private final UUID id = UUID.randomUUID();
 
     public User(String name, boolean sex, int age, String zodiacSign) {
 
@@ -36,7 +36,7 @@ public class User {
         this.zodiacSign = zodiacSign;
     }
 
-    public boolean isSex() {
+    public boolean getSex() {
         return sex;
     }
 
