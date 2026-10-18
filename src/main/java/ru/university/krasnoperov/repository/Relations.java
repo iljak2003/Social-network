@@ -1,14 +1,30 @@
 package ru.university.krasnoperov.repository;
 
-import ru.university.krasnoperov.model.User;
+import java.util.List;
+import java.util.UUID;
 
-public class Relations {
+public interface Relations {
 
-    private Graph blackList = new Graph();
-    private Graph friendsAndSubs = new Graph();
+    void removeUser(UUID id);
 
-    public Relations(User user){
+    void addUser(UUID id);
 
-    }
+    void follow(UUID yourId, UUID idToFollow);
+
+    void unFollow(UUID yourId, UUID idToUnfollow);
+
+    void addToBlackList(UUID yourId, UUID idToAddToBL);
+
+    void removeFromBlackList(UUID yourId, UUID idToRemFrBL);
+
+    boolean isInBL(UUID firstId, UUID secondId);
+
+    boolean isFriends(UUID firstId, UUID secondId);
+
+    boolean isSub(UUID firstId, UUID secondId);
+
+    public List<UUID> getFol(UUID user);
+
+    public List<UUID> getBL(UUID user);
 
 }
