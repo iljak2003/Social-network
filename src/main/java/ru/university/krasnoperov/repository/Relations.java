@@ -5,6 +5,10 @@ import java.util.UUID;
 
 public interface Relations {
 
+    void removeUser(UUID id);
+
+    void addUser(UUID id);
+
     void follow(UUID yourId, UUID idToFollow);
 
     void unFollow(UUID yourId, UUID idToUnfollow);
@@ -18,5 +22,9 @@ public interface Relations {
     boolean isFriends(UUID firstId, UUID secondId);
 
     boolean isSub(UUID firstId, UUID secondId);
+
+    public List<UUID> getFol(UUID user);
+
+    public List<UUID> getBL(UUID user);
 
 }
