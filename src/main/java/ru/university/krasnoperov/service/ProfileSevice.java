@@ -18,45 +18,45 @@ public class ProfileSevice {
     }
 
 
-    public User createUser(String name, boolean sex, int age, String zodiacSign){
+    public User createUser(String name, boolean sex, int age, String zodiacSign) {
         User user = new User(name, sex, age, zodiacSign);
         relations.addUser(user.getId());
         return userRepo.addUser(user);
     }
 
-    public void deleteUser(UUID id){
-        if (!userRepo.deleteUser(id)){
+    public void deleteUser(UUID id) {
+        if (!userRepo.deleteUser(id)) {
             throw new UserNotFoundException(id);
         }
         relations.removeUser(id);
     }
 
-    private User validate(UUID id){
-        if(id == null || getUserById(id).isEmpty()){
+    private User validate(UUID id) {
+        if (id == null || getUserById(id).isEmpty()) {
             throw new UserNotFoundException(id);
         }
-        return userRepo.getUserById(id).get();
+        return getUserById(id).get();
     }
 
-    public User updateName(UUID id, String name){
+    public User updateName(UUID id, String name) {
         User user = validate(id);
         user.setName(name);
         return userRepo.updateUser(user);
     }
 
-    public User updateAge(UUID id, int age){
+    public User updateAge(UUID id, int age) {
         User user = validate(id);
         user.setAge(age);
         return userRepo.updateUser(user);
     }
 
-    public User updateSex(UUID id, boolean sex){
+    public User updateSex(UUID id, boolean sex) {
         User user = validate(id);
         user.setSex(sex);
         return userRepo.updateUser(user);
     }
 
-    public User updateZodiacSign(UUID id, String zodiacSign){
+    public User updateZodiacSign(UUID id, String zodiacSign) {
         User user = validate(id);
         user.setZodiacSign(zodiacSign);
         return userRepo.updateUser(user);

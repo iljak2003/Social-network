@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
-public class UserRepoInMemmory implements UserRepo{
+public class UserRepoInMemmory implements UserRepo {
 
     private final Map<UUID, User> data;
 
@@ -20,7 +20,7 @@ public class UserRepoInMemmory implements UserRepo{
     }
 
     @Override
-    public User addUser(User newUser){
+    public User addUser(User newUser) {
         data.put(newUser.getId(), newUser);
         return newUser;
     }
@@ -31,18 +31,18 @@ public class UserRepoInMemmory implements UserRepo{
     }
 
     @Override
-    public boolean deleteUser(UUID id){
+    public boolean deleteUser(UUID id) {
         return data.remove(id) != null;
     }
 
     @Override
-    public User updateUser(User updateUser){
+    public User updateUser(User updateUser) {
         data.put(updateUser.getId(), updateUser);
         return updateUser;
     }
 
     @Override
-    public Map<UUID, User> getData(){
+    public Map<UUID, User> getData() {
         return data;
     }
 
