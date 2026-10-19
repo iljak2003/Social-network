@@ -1,5 +1,8 @@
 package ru.university.krasnoperov.model;
 
+import ru.university.krasnoperov.repository.UserFoto;
+import ru.university.krasnoperov.repository.UserFotoInMemmory;
+
 import java.util.UUID;
 
 public class User {
@@ -8,7 +11,8 @@ public class User {
     private int age;
     private boolean sex;
     private String zodiacSign;
-    private UUID id = UUID.randomUUID();
+    private final UserFoto foto = new UserFotoInMemmory();
+    private final UUID id = UUID.randomUUID();
 
     public User(String name, boolean sex, int age, String zodiacSign) {
 
@@ -36,7 +40,7 @@ public class User {
         this.zodiacSign = zodiacSign;
     }
 
-    public boolean isSex() {
+    public boolean getSex() {
         return sex;
     }
 
